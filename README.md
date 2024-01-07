@@ -3,6 +3,5 @@ This Python script utilizes the `pywifi` library to scan and retrieve informatio
 
 
 
-WORK IN PROGROSS
-
-More features are going to be added. 
+Work in progress
+More features are going to be added at a later date
