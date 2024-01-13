@@ -5,3 +5,6 @@ This Python script utilizes the `pywifi` library to scan and retrieve informatio
 
 Work in progress
 More features are going to be added at a later date
+
+
+The objective is to find and use MAC address ranges to determine both the device and its possible manufacturing date. With this information, I plan to integrate it into a Wi-Fi router vulnerability database to facilitate faster audits of Wi-Fi networks.
