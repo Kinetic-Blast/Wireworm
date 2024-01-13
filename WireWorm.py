@@ -1,6 +1,5 @@
 import pywifi
 import MacAdress
-import time
 from pywifi import const
 
 print("""
@@ -18,6 +17,9 @@ print("""
  ███ ███   ██████  ██   ██ ██      ██ 
                                       
                                       """)
+
+
+MacFile= "manufacturers.txt"
 
 
 
@@ -47,7 +49,7 @@ def get_wifi_info():
     # Print the information
     for i, (ssid, data) in enumerate(unique_networks.items(), start=1):
 
-        vendor_info=MacAdress.get_vendor_info(data['bssid'])
+        vendor_info=MacAdress.find_manufacturer(data['bssid'],MacFile)
 
         security_names = {0: 'None',1: 'WEP',2: 'WPA',3: 'WPA-PSK',4: 'WPA2',5: 'WPA2-PSK',6: 'WPA3',}
         security_name = security_names.get(data['security'], 'Unknown')
@@ -67,7 +69,6 @@ def get_wifi_info():
 
 
         print("\n")
-        time.sleep(2)
 
 if __name__ == "__main__":
     get_wifi_info()
