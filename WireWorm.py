@@ -5,7 +5,25 @@ from pywifi import const
 from rich.console import Console
 from rich.table import Table
 from rich.live import Live
+from rich.panel import Panel
 
+
+
+print("""
+    ██     ██ ██ ██████  ███████      
+    ██     ██ ██ ██   ██ ██           
+    ██  █  ██ ██ ██████  █████        
+    ██ ███ ██ ██ ██   ██ ██           
+     ███ ███  ██ ██   ██ ███████      
+                                      
+                                      
+██     ██  ██████  ██████  ███    ███ 
+██     ██ ██    ██ ██   ██ ████  ████ 
+██  █  ██ ██    ██ ██████  ██ ████ ██ 
+██ ███ ██ ██    ██ ██   ██ ██  ██  ██ 
+ ███ ███   ██████  ██   ██ ██      ██ 
+                                      
+                                      """)
 MacFile = "manufacturers.txt"  # Path to the MAC address vendor file
 
 def dbm_to_percentage(dbm):
@@ -49,7 +67,7 @@ def get_wifi_info():
 
 def create_table(networks):
     """Generate a table for displaying Wi-Fi scan results."""
-    table = Table(title="Real-Time Wi-Fi Scanner (Sorted by Signal Strength)", show_header=True, header_style="bold cyan")
+    table = Table()
     table.add_column("SSID", style="bold")
     table.add_column("Signal (dBm)", justify="right")
     table.add_column("Signal %", justify="right")
@@ -71,6 +89,9 @@ def create_table(networks):
 def live_scan():
     """Continuously update Wi-Fi scan results in real-time."""
     console = Console()
+    
+    
+
     with Live(console=console, auto_refresh=True) as live:
         while True:
             networks = get_wifi_info()
